@@ -38,6 +38,7 @@ void Rectangle::doDraw(ShapeColor color) const
 
 void demo_inheritance()
 {
+	cout << endl << "This demo shows how destructor is being called" << endl;
 	Shape *p = new Shape;
 	p->draw();
 	delete p;

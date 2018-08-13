@@ -9,6 +9,7 @@
 #include <sstream>
 #include <algorithm>
 #include <vector>
+#include "print.hpp"
 
 using namespace std;
 
@@ -42,15 +43,18 @@ void demo_shared_ptr()
 void demo_unique()
 {
 	cout << endl << "test std::unique" << endl;
+
 	std::vector<int> v{1,2,3,1,2,3,3,4,5,4,5,6,7};
+	PRINT_ELEMENTS(v, "v is initialized as:");
+
 	std::sort(v.begin(), v.end());
-	cout << "dump v after sort:" << endl;
-	vector_dump(v);
+	PRINT_ELEMENTS(v, "v after being sorted: ");
+
 	auto last = std::unique(v.begin(), v.end());
-	cout << "dump v after unique:" << endl;
-	vector_dump(v);
+	PRINT_ELEMENTS(v, "v after being uniquified: ");
+
 	v.erase(last, v.end());
-	vector_dump(v);
+	PRINT_ELEMENTS(v, "v after being erased: ");
 }
 
 int demo_binder();
