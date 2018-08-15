@@ -1,6 +1,6 @@
 CXX=clang++-3.9
 TARGET=test
-SRCS=test.cpp demo_binder.cpp inheritance.cpp algorithm.cpp
+SRCS=test.cpp demo_binder.cpp inheritance.cpp algo.cpp
 CXXFLAGS=$(DEBUG_FLAGS) -std=c++11 -Wall -fPIC
 OBJS=$(patsubst %.cpp,%.o,$(SRCS))
 DEPS=$(patsubst %.cpp,%.d,$(SRCS))

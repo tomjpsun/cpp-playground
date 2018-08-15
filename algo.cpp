@@ -9,6 +9,8 @@
 #include <sstream>
 #include <algorithm>
 #include <vector>
+#include <deque>
+#include <functional>
 #include "print.hpp"
 
 using namespace std;
@@ -55,4 +57,16 @@ void demo_unique()
 
 	v.erase(last, v.end());
 	PRINT_ELEMENTS(v, "v after being erased: ");
+}
+
+void demo_transform()
+{
+	cout << endl << "demo transform" << endl;
+	deque<int> coll = { 2, 3, 4, 5, 6, 7, 8, 9};
+	PRINT_ELEMENTS(coll, "initialized as: ");
+	transform(coll.cbegin(), coll.cend(),
+		  coll.begin(),
+		  negate<int>());
+	PRINT_ELEMENTS(coll, "after negating elements: ");
+
 }
