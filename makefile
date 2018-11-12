@@ -1,7 +1,7 @@
-CXX=clang++-3.9
+CXX=clang++-4.0
 TARGET=test
-SRCS=test.cpp demo_binder.cpp inheritance.cpp algo.cpp
-CXXFLAGS=$(DEBUG_FLAGS) -std=c++11 -Wall -fPIC
+SRCS=test.cpp demo_binder.cpp inheritance.cpp algo.cpp execution_path_comparison.cpp
+CXXFLAGS=$(DEBUG_FLAGS) -std=c++14 -Wall -fPIC
 OBJS=$(patsubst %.cpp,%.o,$(SRCS))
 DEPS=$(patsubst %.cpp,%.d,$(SRCS))
 LIBS    =-lrt -lstdc++  -pthread
