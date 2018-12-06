@@ -17,11 +17,7 @@ using namespace std;
 int main(int argc, char** argv)
 {
 	execution_path_comparison(argv[0]);
-	std::forward_list<int> fwlist = { 1, 2, 3 };
-// insert 77, 88, and 99 at the beginning:
-	fwlist.insert_after (fwlist.before_begin(), // position
-			     { 77, 88, 99 } ); // values
-	PRINT_ELEMENTS(fwlist);
+	cout << "sizeof (uint8_t *) = " << sizeof(uint8_t*) << endl;
 //	demo_inheritance();
 	return 0;
 }
