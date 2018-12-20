@@ -11,14 +11,16 @@ int demo_binder();
 void demo_inheritance();
 void execution_path_comparison(char* argv0);
 int test_json_c();
+void test_touple();
 
 using namespace std;
 
 int main(int argc, char** argv)
 {
-	execution_path_comparison(argv[0]);
-	cout << "sizeof (uint8_t *) = " << sizeof(uint8_t*) << endl;
+//	execution_path_comparison(argv[0]);
+//	cout << "sizeof (uint8_t *) = " << sizeof(uint8_t*) << endl;
 //	demo_inheritance();
-	test_json_c();
+//	test_json_c();
+	test_touple();
 	return 0;
 }
