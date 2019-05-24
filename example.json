@@ -1,0 +1,1 @@
+{"BOOLEAN":true,"STRING":"string","NUMBER":100,"ARRAY":["str1","str2","str3"],"OBJECT":{"MEMBER_BOOLEAN":false,"MEMBER_STRING":"string","MEMBER_NUMBER":200,"MEMBER_ARRAY":[1,2,3]}}
