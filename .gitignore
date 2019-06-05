@@ -1,0 +1,59 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so.*
+*.dylib
+*.dll
+*.so
+
+# mac file footprint
+*.DS_Store
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+cpp_test
+c_test
+
+# Editor temp files
+\#*
+*~
+*.log
+config_test.json
+GPATH
+GRTAGS
+GTAGS
+
+# bear output
+compile_commands.json
+
+# copied res files
+scripts/res/*
+
+# visual studio output
+Bin/*
+Debug/*
+ipch/*
+
+# visual studio database files
+*.db
+
+# exclude image data
