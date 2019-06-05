@@ -14,6 +14,7 @@ int test_json_c();
 void test_touple();
 void timeout_test();
 void vec_insert();
+void pass_smartptr();
 
 using namespace std;
 
@@ -25,5 +26,6 @@ int main(int argc, char** argv)
 //	test_touple();
 //	timeout_test();
 //	vec_insert();
+	pass_smartptr();
 	return 0;
 }

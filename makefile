@@ -1,6 +1,6 @@
 CXX=clang++-4.0
 TARGET=test
-SRCS=test.cpp demo_binder.cpp inheritance.cpp algo.cpp execution_path_comparison.cpp example_json.cpp touple.cpp timeout_test.cpp vec_insert.cpp
+SRCS=test.cpp demo_binder.cpp inheritance.cpp algo.cpp execution_path_comparison.cpp example_json.cpp touple.cpp timeout_test.cpp vec_insert.cpp pass_smartptr.cpp
 CXXFLAGS=$(DEBUG_FLAGS) -std=c++14 -Wall -fPIC
 OBJS=$(patsubst %.cpp,%.o,$(SRCS))
 DEPS=$(patsubst %.cpp,%.d,$(SRCS))
