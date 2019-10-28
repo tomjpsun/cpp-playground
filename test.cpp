@@ -4,6 +4,7 @@
 #include <string>
 #include <forward_list>
 
+
 void demo_shared_ptr();
 void demo_unique();
 void demo_transform();
@@ -15,6 +16,7 @@ void test_touple();
 void timeout_test();
 void vec_insert();
 void pass_smartptr();
+int is_little_endian();
 
 using namespace std;
 
@@ -26,6 +28,6 @@ int main(int argc, char** argv)
 //	test_touple();
 //	timeout_test();
 //	vec_insert();
-	pass_smartptr();
-	return 0;
+//	pass_smartptr();
+
 }
