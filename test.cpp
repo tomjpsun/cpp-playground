@@ -17,6 +17,8 @@ void timeout_test();
 void vec_insert();
 void pass_smartptr();
 int is_little_endian();
+void regex_test();
+void json_test();
 
 using namespace std;
 
@@ -29,5 +31,6 @@ int main(int argc, char** argv)
 //	timeout_test();
 //	vec_insert();
 //	pass_smartptr();
-
+//	regex_test();
+	json_test();
 }
