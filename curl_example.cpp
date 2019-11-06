@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 #include <curl/curl.h>
-
+#include <sstream>
+using namespace std;
 
 static size_t write_callback(void *contents, size_t size, size_t nmemb, void *userp)
 {
@@ -9,21 +10,48 @@ static size_t write_callback(void *contents, size_t size, size_t nmemb, void *us
 	return size * nmemb;
 }
 
-std::string curl_read(std::string url)
+stringstream curl_read(std::string url)
 {
 	CURL *curl;
 	CURLcode res;
 	std::string read_buffer;
 
 	curl = curl_easy_init();
-	if(curl) {
+	if (curl) {
 		curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_callback);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &read_buffer);
 		res = curl_easy_perform(curl);
 		curl_easy_cleanup(curl);
-
-		//std::cout << readBuffer << std::endl;
 	}
-	return read_buffer;
+	return stringstream{read_buffer};
+}
+
+struct record
+{
+	record(stringstream& ss) {
+		ss >> x[0];
+		ss >> x[1];
+		ss >> x[2];
+		ss >> x[3];
+		ss >> y;
+	}
+	float x[4];
+	int y;
+	void dump() {
+		for (int i = 0; i < 4; i++)
+			cout << "x[" << i << "] = " << x[i] << ", ";
+		cout << " y = " << y << endl;
+	}
+};
+
+void hw1_15()
+{
+	string url_addr("https://www.csie.ntu.edu.tw/~htlin/mooc/datasets/mlfound_math/hw1_15_train.dat");
+	stringstream ss = curl_read(url_addr);
+	cout << ss.str() << endl << endl;
+	record a1(ss);
+	a1.dump();
+	record a2(ss);
+	a2.dump();
 }
