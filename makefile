@@ -5,7 +5,7 @@ CXXFLAGS=$(DEBUG_FLAGS) -std=c++14 -Wall -fPIC
 OBJS=$(patsubst %.cpp,%.o,$(SRCS))
 DEPS=$(patsubst %.cpp,%.d,$(SRCS))
 LIBS    =-lrt -lstdc++  -pthread -ljson-c
-INCFLAGS = -I./ -I/usr/include
+INCFLAGS = -I./json/include -I/usr/include
 .PHONY:	clean $(TARGET)
 
 # Objects generation
