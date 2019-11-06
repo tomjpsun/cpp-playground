@@ -1,7 +1,10 @@
+
 #include <iostream>
 #include <string>
 #include <curl/curl.h>
 #include <sstream>
+#include <vector>
+
 using namespace std;
 
 static size_t write_callback(void *contents, size_t size, size_t nmemb, void *userp)
@@ -29,6 +32,8 @@ stringstream curl_read(std::string url)
 
 struct record
 {
+	record(){};
+
 	record(stringstream& ss) {
 		ss >> x[0];
 		ss >> x[1];
@@ -36,6 +41,7 @@ struct record
 		ss >> x[3];
 		ss >> y;
 	}
+
 	float x[4];
 	int y;
 	void dump() {
@@ -49,9 +55,10 @@ void hw1_15()
 {
 	string url_addr("https://www.csie.ntu.edu.tw/~htlin/mooc/datasets/mlfound_math/hw1_15_train.dat");
 	stringstream ss = curl_read(url_addr);
-	cout << ss.str() << endl << endl;
-	record a1(ss);
-	a1.dump();
-	record a2(ss);
-	a2.dump();
+	vector<record> table;
+	while (ss.rdbuf()->in_avail()) {
+		record rec(ss);
+		table.push_back(rec);
+	}
+	cout << "get #" << table.size() << " of records." << endl;
 }
