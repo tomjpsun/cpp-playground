@@ -30,14 +30,12 @@
 *.exe
 *.out
 *.app
-cpp_test
-c_test
+test
 
 # Editor temp files
 \#*
 *~
 *.log
-config_test.json
 GPATH
 GRTAGS
 GTAGS
