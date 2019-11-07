@@ -12,7 +12,7 @@ else
 endif
 
 LIBS    = -lstdc++  -pthread -ljson-c -lcurl $(lrtlibs)
-INCFLAGS = -I./json/include -I/usr/include
+INCFLAGS = -I. -I/usr/include
 .PHONY:	clean $(TARGET)
 
 # Objects generation
