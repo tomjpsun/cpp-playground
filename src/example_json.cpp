@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include<json-c/json.h>
+#include<json.h>
 
 #define EXAMPLE_JSON "./example.json"
 #define BOOL_BOOLEAN "BOOLEAN"

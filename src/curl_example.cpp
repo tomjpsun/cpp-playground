@@ -51,7 +51,7 @@ struct record
 	}
 };
 
-void hw1_15()
+void curl_test()
 {
 	string url_addr("https://www.csie.ntu.edu.tw/~htlin/mooc/datasets/mlfound_math/hw1_15_train.dat");
 	stringstream ss = curl_read(url_addr);

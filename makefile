@@ -2,8 +2,8 @@ CXX=clang++
 TARGET=test
 SDIR=src
 ODIR=obj
-SRCS=test.cpp demo_binder.cpp inheritance.cpp algo.cpp execution_path_comparison.cpp example_json.cpp touple.cpp timeout_test.cpp vec_insert.cpp pass_smartptr.cpp endian.cpp regex_test.cpp json_test.cpp curl_example.cpp
-CXXFLAGS=$(DEBUG_FLAGS) -std=c++14 -Wall -fPIC
+SRCS=test.cpp demo_binder.cpp inheritance.cpp algo.cpp execution_path_comparison.cpp example_json.cpp touple.cpp timeout_test.cpp vec_insert.cpp pass_smartptr.cpp endian.cpp regex_test.cpp json_test.cpp curl_example.cpp llvm-jit.cpp
+CXXFLAGS = -std=c++14 -Wall -fPIC
 OBJS=$(patsubst %.cpp, $(ODIR)/%.o, $(SRCS))
 DEPS=$(patsubst %.cpp, $(ODIR)/%.d, $(SRCS))
 
@@ -14,8 +14,12 @@ else
   lrtlibs:=
 endif
 
-LIBS    = -lstdc++  -pthread -ljson-c -lcurl $(lrtlibs)
-INCFLAGS = -I. -Iinc -I/usr/include
+LIBS= -lstdc++  -pthread -lcurl $(lrtlibs)
+LIBS+= $(shell pkg-config --libs json-c)
+LIBS+= -lLLVM -L/usr/local/opt/llvm/lib
+INCFLAGS= -I. -Iinc -I/usr/include
+INCFLAGS += $(shell pkg-config --cflags json-c)
+INCFLAGS +=  -I/usr/local/opt/llvm/include
 
 .PHONY:	clean $(TARGET)
 # Objects generation

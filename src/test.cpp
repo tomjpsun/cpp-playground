@@ -20,7 +20,8 @@ int is_little_endian();
 void regex_test();
 void json_test();
 std::string curl_read(std::string url);
-void hw1_15();
+void curl_test();
+int llvm_jit_test();
 
 using namespace std;
 
@@ -35,5 +36,6 @@ int main(int argc, char** argv)
 //	pass_smartptr();
 //	regex_test();
 //	json_test();
-	hw1_15();
+	curl_test();
+	llvm_jit_test();
 }
