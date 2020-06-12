@@ -22,6 +22,7 @@ void json_test();
 std::string curl_read(std::string url);
 void curl_test();
 int llvm_jit_test();
+int run_task_q();
 
 using namespace std;
 
@@ -36,6 +37,7 @@ int main(int argc, char** argv)
 //	pass_smartptr();
 //	regex_test();
 //	json_test();
-	curl_test();
-	llvm_jit_test();
+//	curl_test();
+//	llvm_jit_test();
+	run_task_q();
 }

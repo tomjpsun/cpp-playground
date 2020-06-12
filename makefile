@@ -3,7 +3,8 @@ TARGET=test
 SDIR=src
 ODIR=obj
 
-SRCS=test.cpp demo_binder.cpp inheritance.cpp algo.cpp execution_path_comparison.cpp example_json.cpp touple.cpp timeout_test.cpp vec_insert.cpp pass_smartptr.cpp endian.cpp regex_test.cpp json_test.cpp curl_example.cpp llvm-jit.cpp
+SRCS=test.cpp demo_binder.cpp inheritance.cpp algo.cpp execution_path_comparison.cpp example_json.cpp touple.cpp timeout_test.cpp vec_insert.cpp pass_smartptr.cpp endian.cpp regex_test.cpp json_test.cpp curl_example.cpp llvm-jit.cpp task_q.cpp
+
 CXXFLAGS = -std=c++14 -Wall -fPIC
 
 OBJS=$(patsubst %.cpp, $(ODIR)/%.o, $(SRCS))
