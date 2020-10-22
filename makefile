@@ -3,7 +3,7 @@ TARGET=test
 SDIR=src
 ODIR=obj
 
-SRCS=test.cpp demo_binder.cpp inheritance.cpp algo.cpp execution_path_comparison.cpp example_json.cpp touple.cpp timeout_test.cpp vec_insert.cpp pass_smartptr.cpp endian.cpp regex_test.cpp json_test.cpp curl_example.cpp llvm-jit.cpp task_q.cpp
+SRCS=test.cpp demo_binder.cpp inheritance.cpp algo.cpp execution_path_comparison.cpp example_json.cpp touple.cpp timeout_test.cpp vec_insert.cpp pass_smartptr.cpp endian.cpp regex_test.cpp json_test.cpp curl_example.cpp llvm-jit.cpp task_q.cpp sign_convert.cpp
 
 CXXFLAGS = -std=c++14 -Wall -fPIC
 

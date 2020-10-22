@@ -23,9 +23,7 @@ std::string curl_read(std::string url);
 void curl_test();
 int llvm_jit_test();
 int run_task_q();
-
-using namespace std;
-
+int verify_sign_convert();
 int main(int argc, char** argv)
 {
 
@@ -40,4 +38,5 @@ int main(int argc, char** argv)
 //	curl_test();
 //	llvm_jit_test();
 	run_task_q();
+	verify_sign_convert();
 }
