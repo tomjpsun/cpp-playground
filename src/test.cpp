@@ -24,6 +24,8 @@ void curl_test();
 int llvm_jit_test();
 int run_task_q();
 int verify_sign_convert();
+void linear_regression_test();
+
 int main(int argc, char** argv)
 {
 
@@ -37,6 +39,7 @@ int main(int argc, char** argv)
 //	json_test();
 //	curl_test();
 //	llvm_jit_test();
-	run_task_q();
-	verify_sign_convert();
+//	run_task_q();
+//	verify_sign_convert();
+	linear_regression_test();
 }
