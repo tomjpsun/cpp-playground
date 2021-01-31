@@ -4,7 +4,6 @@
 #include <string>
 #include <forward_list>
 
-
 void demo_shared_ptr();
 void demo_unique();
 void demo_transform();
@@ -20,6 +19,7 @@ int is_little_endian();
 void regex_test();
 void json_test();
 std::string curl_read(std::string url);
+int armadillo_test();
 
 using namespace std;
 
@@ -34,6 +34,7 @@ int main(int argc, char** argv)
 //	pass_smartptr();
 //	regex_test();
 //	json_test();
-	std::string url_addr("https://www.csie.ntu.edu.tw/~htlin/mooc/datasets/mlfound_math/hw1_15_train.dat");
-	std::cout << curl_read(url_addr);
+//	std::string url_addr("https://www.csie.ntu.edu.tw/~htlin/mooc/datasets/mlfound_math/hw1_15_train.dat");
+//	std::cout << curl_read(url_addr);
+	armadillo_test();
 }
