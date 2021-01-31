@@ -4,7 +4,6 @@
 #include <string>
 #include <forward_list>
 
-
 void demo_shared_ptr();
 void demo_unique();
 void demo_transform();
@@ -25,6 +24,9 @@ int llvm_jit_test();
 int run_task_q();
 int verify_sign_convert();
 void linear_regression_test();
+int armadillo_test();
+
+using namespace std;
 
 int main(int argc, char** argv)
 {
@@ -42,4 +44,7 @@ int main(int argc, char** argv)
 //	run_task_q();
 //	verify_sign_convert();
 	linear_regression_test();
+//	std::string url_addr("https://www.csie.ntu.edu.tw/~htlin/mooc/datasets/mlfound_math/hw1_15_train.dat");
+//	std::cout << curl_read(url_addr);
+	armadillo_test();
 }
