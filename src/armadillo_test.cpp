@@ -29,12 +29,20 @@ int armadillo_test()
 	  第二個參數 k 表示取 k 個符合的 indexes.
 	  本例 find 是找出 B.col(i) 中, 等於最大值的 index, 只取一個.
 	  由於 armadillo 是從 0 開始計數, 標示 label 的 data 都是從 1 開始計數, 因此加一
-	 */
-	rowvec q(B.n_cols, 0);
+	*/
+	rowvec q(B.n_cols);
+	rowvec r(B.n_cols);
 
 	for (int i=0; i<B.n_cols; i++) {
 		q(i) =  arma::as_scalar(arma::find( arma::max(B.col(i)) == B.col(i), 1)) + 1;
 	}
 	cout << "q=" << q << endl;
+
+	// the alternative way
+	for (int i=0; i<B.n_cols; i++) {
+		r(i) = B.col(i).index_max() + 1;
+	}
+	cout << "r=" << r << endl;
+
 	return 0;
 }
