@@ -10,7 +10,7 @@ CXXFLAGS=$(DEBUG_FLAGS) -std=c++14 -Wall -fPIC
 OBJS=$(patsubst %.cpp, $(ODIR)/%.o, $(SRCS))
 DEPS=$(patsubst %.cpp, $(ODIR)/%.d, $(SRCS))
 
-lrt:=$(shell echo "int main() {}"|clang -x c - -lrt 2>&1)
+lrt:=$(shell echo "int main() {}"|clang -x c - -lrt 2>&1 ; rm a.out)
 ifeq ($(lrt),)
   lrtlibs:=-lrt
 else
@@ -34,11 +34,12 @@ $(ODIR)/%.d:    $(SDIR)/%.cpp
 	$(CXX) -M $(CXXFLAGS) $(INCFLAGS) $< > $@
 
 
-$(TARGET): $(ODIR)/test.o $(OBJS)
-	$(CXX) -o $@ $(OBJS) $(LIBS)
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(INCFLAGS) -o $@ $(OBJS) $(LIBS)
 
 clean:
 	find ./ -name "*~" -exec rm -rf {} \;
 	find ./ -iname "*.[o|d]" -exec rm -rf {} \;
+	rm $(TARGET)
 
 -include $(DEPS)
