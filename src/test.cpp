@@ -17,6 +17,7 @@ void vec_insert();
 void pass_smartptr();
 int is_little_endian();
 void regex_test();
+void regex_test2();
 void json_test();
 std::string curl_read(std::string url);
 void curl_test();
@@ -37,14 +38,14 @@ int main(int argc, char** argv)
 //	timeout_test();
 //	vec_insert();
 //	pass_smartptr();
-//	regex_test();
+	regex_test2();
 //	json_test();
 //	curl_test();
 //	llvm_jit_test();
 //	run_task_q();
 //	verify_sign_convert();
-	linear_regression_test();
+//	linear_regression_test();
 //	std::string url_addr("https://www.csie.ntu.edu.tw/~htlin/mooc/datasets/mlfound_math/hw1_15_train.dat");
 //	std::cout << curl_read(url_addr);
-	armadillo_test();
+//	armadillo_test();
 }

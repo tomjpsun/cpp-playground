@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <sstream>
+#include <string>
 
 using namespace std;
 
@@ -30,27 +31,19 @@ void regex_test()
 	}
 }
 
-/*
-	src::severity_logger< severity_level > lg;
-
-	BOOST_LOG_SEV(lg, debug) << __func__ << "():";
-	for (tag_refresh_list::reference e : *refresh_list) {
-		boost::filesystem::path path_name(e.tag_image_path);
-		path_name /= e.tag_image_name;
-		e.tag_image_size = (uint64_t)get_file_size(path_name.string());
-		BOOST_LOG_SEV(lg, debug) << path_name.string() << ", size = " << e.tag_image_size;
-
-		int index = 0;
-		if (std::regex_match(e.tag_image_name, index_match, re_index)) {
+void regex_test2()
+{
+	string target("\x0a@2021/04/16 16:25:29.388-Antenna1-U3000E28011606000020D6841ECBF4ABF\x0d\x0a");
+	const regex re_index("\n.*\r\n");
+	smatch index_match;
+		if (std::regex_match(target, index_match, re_index)) {
 			// The first sub_match is the whole string; the next
 			// sub_match is the first parenthesized expression.
-			if (index_match.size() == 2) {
-				std::ssub_match sub_match = index_match[1];
-				index = std::stoi(sub_match.str());
+			for (int i = 0; i < index_match.size(); i++) {
+				std::ssub_match sub_match = index_match[i];
+				std::string m = sub_match.str();
+				cout << "index_match[" << i << "]= " << m << endl;
 			}
 		}
-		e.info.index = index;
 
-	}
-	return refresh_list;
-*/
+}
