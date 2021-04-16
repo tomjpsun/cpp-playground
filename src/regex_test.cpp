@@ -33,10 +33,11 @@ void regex_test()
 
 void regex_test2()
 {
+	string target0("\x0a@2021/04/16 16:25:29.390-Antenna1-U\x0d\x0a" );
 	string target("\x0a@2021/04/16 16:25:29.388-Antenna1-U3000E28011606000020D6841ECBF4ABF\x0d\x0a");
-	const regex re_index("\n.*\r\n");
+	const regex reg( "\n(@?)(\\d{4}/\\d{2}/\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3})-Antenna(\\d+)-U([0-9a-fA-F]{4})(.*)([0-9a-fA-F]{4})\r\n" );
 	smatch index_match;
-		if (std::regex_match(target, index_match, re_index)) {
+		if (std::regex_match(target, index_match, reg)) {
 			// The first sub_match is the whole string; the next
 			// sub_match is the first parenthesized expression.
 			for (int i = 0; i < index_match.size(); i++) {
