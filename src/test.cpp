@@ -26,6 +26,8 @@ int run_task_q();
 int verify_sign_convert();
 void linear_regression_test();
 int armadillo_test();
+int gnuplot_demo1();
+int gnuplot_demo2();
 
 using namespace std;
 
@@ -38,7 +40,6 @@ int main(int argc, char** argv)
 //	timeout_test();
 //	vec_insert();
 //	pass_smartptr();
-	regex_test2();
 //	json_test();
 //	curl_test();
 //	llvm_jit_test();
@@ -48,4 +49,6 @@ int main(int argc, char** argv)
 //	std::string url_addr("https://www.csie.ntu.edu.tw/~htlin/mooc/datasets/mlfound_math/hw1_15_train.dat");
 //	std::cout << curl_read(url_addr);
 //	armadillo_test();
+//	regex_test2();
+	gnuplot_demo1();
 }
