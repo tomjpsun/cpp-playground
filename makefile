@@ -21,7 +21,7 @@ LIBS= -lstdc++  -pthread -lcurl $(lrtlibs) -larmadillo
 LIBS+= $(shell pkg-config --libs json-c)
 LIBS+= -lLLVM -L/usr/local/opt/llvm/lib
 LIBS+= -lboost_system -lboost_filesystem -lboost_iostreams
-INCFLAGS= -I. -Iinc -I/usr/include
+INCFLAGS= -Iinc -I/usr/include
 INCFLAGS += $(shell pkg-config --cflags json-c)
 INCFLAGS +=  -I/usr/local/opt/llvm/include
 

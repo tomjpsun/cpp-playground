@@ -35,7 +35,7 @@ int main(int argc, char** argv)
 {
 
 //	demo_inheritance();
-	test_json_c();
+//	test_json_c();
 //	test_touple();
 //	timeout_test();
 //	vec_insert();

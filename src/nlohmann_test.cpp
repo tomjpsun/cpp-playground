@@ -1,94 +1,60 @@
-#include "nlohmann/json.hpp"
 #include <string>
 #include <iostream>
 #include <vector>
+#include <map>
+
+#include "nlohmann/json.hpp"
 
 using namespace std;
 using json  = nlohmann::json;
 
-string jstr =
-	"{\
-  \"rows\": 1,\
-  \"data\": [\
-{\
-\"ok\": [\
-        {\
-          \"drug_id\": \"07248\",\
-          \"tag_id\": \"8C8100000B\",\
-          \"binding_id\": \"DB5C206DE4555BD99B0D03D19387C863\"\
-}, {\
-          \"drug_id\": \"07342\",\
-          \"tag_id\": \"8A81000009\",\
-          \"binding_id\": \"FF5767317A3D847C067D217ED98A94BF\"\
-}, {\
-          \"drug_id\": \"08413\",\
-          \"tag_id\": \"8781000006\",\
-          \"binding_id\": \"1F08642608C8F0C74BF8012ED6006A61\"\
-} ],\
-\"error\": [] }\
-] }";
-
 /* nlohmann requires auto converting classes that are in namespace */
-namespace drug_test {
-	struct drug_t {
-		string drug_id;
-		string tag_id;
-		string binding_id;
+namespace rfid {
+	class ServiceRfidCommand
+	{
+	public: ServiceRfidCommand() {}
+	        string token;
+		int command_id;
+		string reader_id;
+		map<string, string> parameters;
+		int reserved;
 	};
 
-	struct response_t {
-		vector<drug_t> ok;
-		vector<string> error;
-	};
+	void to_json(json& j, const ServiceRfidCommand& s);
+	void from_json(const json& j, ServiceRfidCommand& s);
+} // namespace rfid
 
-	struct backend_t {
-		int rows;
-		vector<response_t> data;
-	};
-
-	void to_json(json& j, const drug_t& d) {
-		j = json{ {"drug_id", d.drug_id},
-			  {"tag_id", d.tag_id},
-			  {"binding_id", d.binding_id}
-		};
+namespace rfid {
+	void to_json(json& j, const ServiceRfidCommand& s) {
+		j = json{ {"token", s.token},
+			  {"command_id", s.command_id},
+			  {"reader_id", s.reader_id},
+			  {"parameters", s.parameters},
+			  {"reserved", s.reserved}};
 	}
 
-	void from_json(const json& j, drug_t& d) {
-		j.at("drug_id").get_to(d.drug_id);
-		j.at("tag_id").get_to(d.tag_id);
-		j.at("binding_id").get_to(d.binding_id);
-	}
-
-	void to_json(json& j, const response_t r)
-	{
-		j = json { {"ok", r.ok},
-			   {"error", r.error}
-		};
-	}
-
-	void from_json(const json&j, response_t r)
-	{
-		j.at("ok").get_to(r.ok);
-		j.at("error").get_to(r.ok);
-	}
-
-	void to_json(json& j, const backend_t b)
-	{
-		j = json{ {"rows", b.rows},
-			  {"data", b.data}
-		};
-	}
-
-	void from_json(const json& j, backend_t b)
-	{
-		j.at("rows").get_to(b.rows);
-		j.at("data").get_to(b.data);
+	void from_json(const json& j, ServiceRfidCommand& s) {
+		j.at("token").get_to(s.token);
+                j.at("command_id").get_to(s.command_id);
+                j.at("reader_id").get_to(s.reader_id);
+		j.at("parameters").get_to(s.parameters);
+		j.at("reserved").get_to(s.reserved);
 	}
 }
 
 void json_test()
 {
-	json j = json::parse(jstr);
-	json j2 = j["data"][0]["ok"];
-	cout << __func__ << "(" << j2.size() << "), " << j2.dump(2) << endl;
+	// create and print a JSON from the map
+	rfid::ServiceRfidCommand svc;
+	svc.token = "rfidtokenex";
+	svc.command_id = 3;
+	svc.reader_id =	"rknj48";
+	svc.parameters = { { "start", "2" }, {"offset", "6"} };
+
+	json j = svc;
+	std::cout << j << std::endl;
+
+	// get the map out of JSON
+	rfid::ServiceRfidCommand m2 = j;
+
 }
