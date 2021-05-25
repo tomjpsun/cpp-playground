@@ -35,12 +35,12 @@ int main(int argc, char** argv)
 {
 
 //	demo_inheritance();
-//	test_json_c();
+	test_json_c();
 //	test_touple();
 //	timeout_test();
 //	vec_insert();
 //	pass_smartptr();
-//	json_test();
+	json_test();
 //	curl_test();
 //	llvm_jit_test();
 //	run_task_q();
@@ -50,5 +50,5 @@ int main(int argc, char** argv)
 //	std::cout << curl_read(url_addr);
 //	armadillo_test();
 //	regex_test2();
-	gnuplot_demo1();
+//	gnuplot_demo1();
 }
