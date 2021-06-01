@@ -28,6 +28,7 @@ void linear_regression_test();
 int armadillo_test();
 int gnuplot_demo1();
 int gnuplot_demo2();
+void asio_tests();
 
 using namespace std;
 
@@ -40,7 +41,7 @@ int main(int argc, char** argv)
 //	timeout_test();
 //	vec_insert();
 //	pass_smartptr();
-	json_test();
+//	json_test();
 //	curl_test();
 //	llvm_jit_test();
 //	run_task_q();
@@ -51,4 +52,5 @@ int main(int argc, char** argv)
 //	armadillo_test();
 //	regex_test2();
 //	gnuplot_demo1();
+	asio_tests();
 }
