@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 
 #include "llvm/IR/LLVMContext.h"
 #include "llvm/IR/Module.h"
@@ -71,7 +72,7 @@ int llvm_jit_test() {
 	InitializeNativeTargetAsmPrinter();
 
 	LLVMContext context;
-	auto myModule = make_unique<Module>("My First JIT", context);
+	auto myModule = std::make_unique<Module>("My First JIT", context);
 	Module* module = myModule.get();
 
 	std::unique_ptr<llvm::RTDyldMemoryManager> MemMgr(new llvm::SectionMemoryManager());

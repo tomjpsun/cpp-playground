@@ -43,8 +43,3 @@ void serial_test() {
 	//asio::read(port, asio::buffer(szRecv, 128));
 
 }
-
-void asio_tests()
-{
-	serial_test();
-}

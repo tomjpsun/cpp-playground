@@ -28,7 +28,8 @@ void linear_regression_test();
 int armadillo_test();
 int gnuplot_demo1();
 int gnuplot_demo2();
-void asio_tests();
+void serial_test();
+void async_handler_test();
 
 using namespace std;
 
@@ -52,5 +53,5 @@ int main(int argc, char** argv)
 //	armadillo_test();
 //	regex_test2();
 //	gnuplot_demo1();
-	asio_tests();
+	async_handler_test();
 }

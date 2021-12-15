@@ -1,9 +1,9 @@
-CXX=clang++
+CXX=clang++-13
 TARGET=test
 SDIR=src
 ODIR=obj
 
-SRCS=test.cpp demo_binder.cpp inheritance.cpp algo.cpp execution_path_comparison.cpp json_c.cpp touple.cpp timeout_test.cpp vec_insert.cpp pass_smartptr.cpp endian.cpp regex_test.cpp nlohmann_test.cpp curl_example.cpp llvm-jit.cpp task_q.cpp sign_convert.cpp linear_regression.cpp armadillo_test.cpp gnuplot.cpp asio_tests.cpp
+SRCS=test.cpp demo_binder.cpp inheritance.cpp algo.cpp execution_path_comparison.cpp json_c.cpp touple.cpp timeout_test.cpp vec_insert.cpp pass_smartptr.cpp endian.cpp regex_test.cpp nlohmann_test.cpp llvm-jit.cpp curl_example.cpp task_q.cpp sign_convert.cpp linear_regression.cpp armadillo_test.cpp gnuplot.cpp serial_test.cpp asio_async_handler.cpp permutation.cpp
 
 CXXFLAGS=$(DEBUG_FLAGS) -std=c++14 -Wall -fPIC
 
