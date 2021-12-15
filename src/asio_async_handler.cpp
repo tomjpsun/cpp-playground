@@ -7,11 +7,14 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
+// Modification by Ching Ping Sun:
+//   Replace boost::bind with std::bind, remove dependency to Boost
+//
 
 #include <iostream>
 #include <functional>
 #include <asio.hpp>
-//#include <boost/bind/bind.hpp>
+
 
 void print(const asio::error_code& /*e*/,
 	   asio::steady_timer* t, int* count)
