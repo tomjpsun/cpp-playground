@@ -10,7 +10,7 @@ CXXFLAGS=$(DEBUG_FLAGS) -std=c++14 -Wall -fPIC
 OBJS=$(patsubst %.cpp, $(ODIR)/%.o, $(SRCS))
 DEPS=$(patsubst %.cpp, $(ODIR)/%.d, $(SRCS))
 
-lrt:=$(shell echo "int main() {}"|clang -x c - -lrt 2>&1 ; rm a.out)
+lrt:=$(shell echo "int main() {}"|$(CXX) -x c - -lrt 2>&1 ; rm -f a.out)
 ifeq ($(lrt),)
   lrtlibs:=-lrt
 else
@@ -25,7 +25,7 @@ INCFLAGS= -Iinc -I/usr/include
 INCFLAGS += $(shell pkg-config --cflags json-c)
 INCFLAGS +=  -I/usr/local/opt/llvm/include
 
-.PHONY:	clean $(TARGET)
+.PHONY:	$(TARGET)
 # Objects generation
 $(ODIR)/%.o:    $(SDIR)/%.cpp
 	$(CXX) $(CXXFLAGS) $(INCFLAGS) -c -MMD $< -o $@
@@ -41,6 +41,6 @@ $(TARGET): $(OBJS)
 clean:
 	find ./ -name "*~" -exec rm -rf {} \;
 	find ./ -iname "*.[o|d]" -exec rm -rf {} \;
-	rm $(TARGET)
+	rm -f $(TARGET)
 
 -include $(DEPS)
