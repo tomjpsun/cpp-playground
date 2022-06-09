@@ -30,6 +30,8 @@ int gnuplot_demo1();
 int gnuplot_demo2();
 void serial_test();
 void async_handler_test();
+void chrono_test();
+
 
 using namespace std;
 
@@ -53,5 +55,6 @@ int main(int argc, char** argv)
 //	armadillo_test();
 //	regex_test2();
 //	gnuplot_demo1();
-	async_handler_test();
+//	async_handler_test();
+	chrono_test();
 }
