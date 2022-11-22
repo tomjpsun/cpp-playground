@@ -31,7 +31,7 @@ int gnuplot_demo2();
 void serial_test();
 void async_handler_test();
 void chrono_test();
-
+int time_zone_test();
 
 using namespace std;
 
@@ -56,5 +56,6 @@ int main(int argc, char** argv)
 //	regex_test2();
 //	gnuplot_demo1();
 //	async_handler_test();
-	chrono_test();
+//	chrono_test();
+	time_zone_test();
 }
