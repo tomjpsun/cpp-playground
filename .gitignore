@@ -55,3 +55,4 @@ ipch/*
 *.db
 
 # exclude image data
+.aider*
