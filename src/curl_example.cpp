@@ -16,7 +16,6 @@ static size_t write_callback(void *contents, size_t size, size_t nmemb, void *us
 stringstream curl_read(std::string url)
 {
 	CURL *curl;
-	CURLcode res;
 	std::string read_buffer;
 
 	curl = curl_easy_init();
@@ -24,7 +23,8 @@ stringstream curl_read(std::string url)
 		curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_callback);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &read_buffer);
-		res = curl_easy_perform(curl);
+		CURLcode res = curl_easy_perform(curl);
+		(void)res; // Explicitly mark as intentionally unused
 		curl_easy_cleanup(curl);
 	}
 	return stringstream{read_buffer};

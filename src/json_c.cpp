@@ -269,7 +269,7 @@ int read_from_json_file(const char *filename)
 	}
 
 	//get the length of the array
-	printf("%s size = %d\n", ARR_ARRAY, json_object_array_length(tmp_obj));
+	printf("%s size = %zu\n", ARR_ARRAY, json_object_array_length(tmp_obj));
 
 	//get the value of array[0]
 	tmp1_obj = json_object_array_get_idx(tmp_obj, 0);
@@ -327,7 +327,7 @@ int read_from_json_file(const char *filename)
 	}
 
 	//get the length of the array within a object
-	printf("%s size = %d\n", ARR_MEMBER_ARRAY, json_object_array_length(tmp1_obj));
+	printf("%s size = %zu\n", ARR_MEMBER_ARRAY, json_object_array_length(tmp1_obj));
 
 	//get the value of array[0] within a object
 	tmp2_obj = json_object_array_get_idx(tmp1_obj, 0);

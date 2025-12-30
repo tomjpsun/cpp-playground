@@ -1,5 +1,4 @@
-#define _GNU_SOURCE /* for tm_gmtoff and tm_zone */
-
+/* _GNU_SOURCE is already defined by llvm-config --cflags for tm_gmtoff and tm_zone */
 #include <stdio.h>
 #include <time.h>
 
