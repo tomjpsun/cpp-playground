@@ -2,6 +2,7 @@ CXX=clang++
 TARGET=test
 SDIR=src
 ODIR=obj
+LLVM_CONFIG = llvm-config-19
 
 SRCS=test.cpp demo_binder.cpp inheritance.cpp algo.cpp execution_path_comparison.cpp example_json.cpp touple.cpp timeout_test.cpp vec_insert.cpp pass_smartptr.cpp endian.cpp regex_test.cpp json_test.cpp curl_example.cpp llvm-jit.cpp task_q.cpp sign_convert.cpp linear_regression.cpp armadillo_test.cpp
 
@@ -19,10 +20,10 @@ endif
 
 LIBS= -lstdc++  -pthread -lcurl $(lrtlibs) -larmadillo -lLLVM
 LIBS+= $(shell pkg-config --libs json-c)
-LIBS+= -L$(shell llvm-config --libdir)
+LIBS+= $(shell $(LLVM_CONFIG) --ldflags)
 INCFLAGS= -I. -Iinc -I/usr/include
 INCFLAGS += $(shell pkg-config --cflags json-c)
-INCFLAGS +=  -I/usr/local/opt/llvm/include
+INCFLAGS += $(shell $(LLVM_CONFIG) --cxxflags)
 
 .PHONY:	clean $(TARGET)
 # Objects generation
