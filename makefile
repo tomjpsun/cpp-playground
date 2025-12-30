@@ -17,9 +17,9 @@ else
   lrtlibs:=
 endif
 
-LIBS= -lstdc++  -pthread -lcurl $(lrtlibs) -larmadillo
+LIBS= -lstdc++  -pthread -lcurl $(lrtlibs) -larmadillo -lLLVM
 LIBS+= $(shell pkg-config --libs json-c)
-LIBS+= -lLLVM -L/usr/local/opt/llvm/lib
+LIBS+= -L$(shell llvm-config --libdir)
 INCFLAGS= -I. -Iinc -I/usr/include
 INCFLAGS += $(shell pkg-config --cflags json-c)
 INCFLAGS +=  -I/usr/local/opt/llvm/include
