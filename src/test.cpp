@@ -28,23 +28,36 @@ int armadillo_test();
 
 using namespace std;
 
+// write a TEST macro, input the test function name,
+// the macro will first print the function name, then
+// call the function
+
+#define TEST(func)							\
+	do {								\
+		std::cout << "====================\n";			\
+		std::cout << "Testing " << #func << " ---\n";		\
+	  func();							\
+	} while(0)
+
+
 int main(int argc, char** argv)
 {
+    TEST(demo_inheritance);
+    TEST(test_json_c);
+    TEST(test_touple);
+    TEST(timeout_test);
+    TEST(vec_insert);
+    TEST(pass_smartptr);
+    TEST(regex_test);
+    TEST(json_test);
+    TEST(curl_test);
+    TEST(llvm_jit_test);
+    TEST(run_task_q);
+    TEST(verify_sign_convert);
+    TEST(linear_regression_test);
+    TEST(armadillo_test);
+    //std::string url_addr("https://www.csie.ntu.edu.tw/~htlin/mooc/datasets/mlfound_math/hw1_15_train.dat");
+    //std::cout << curl_read(url_addr);
 
-//	demo_inheritance();
-//	test_json_c();
-//	test_touple();
-//	timeout_test();
-//	vec_insert();
-//	pass_smartptr();
-//	regex_test();
-//	json_test();
-//	curl_test();
-//	llvm_jit_test();
-//	run_task_q();
-//	verify_sign_convert();
-	linear_regression_test();
-//	std::string url_addr("https://www.csie.ntu.edu.tw/~htlin/mooc/datasets/mlfound_math/hw1_15_train.dat");
-//	std::cout << curl_read(url_addr);
-	armadillo_test();
+    return 0;
 }
